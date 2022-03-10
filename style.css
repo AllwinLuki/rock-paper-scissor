@@ -1,0 +1,44 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background-color:teal;
+}
+
+.title{
+    font-size: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.game-board{
+    font-size: 30px;
+}
+
+.theChoice{
+    display: flex;
+    justify-content: space-evenly;
+    border:3px solid red;
+    padding: 20px;
+}
+.choices{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.round{
+    margin-left: 18px;
+}
+
+img{
+    max-width: 200px;
+}
+
+.choices img:hover{
+transform: scale(1.1);
+}
