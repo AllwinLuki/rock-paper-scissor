@@ -16,14 +16,22 @@ body{
 }
 
 .game-board{
+    display: flex;
+    flex-direction: column;
     font-size: 30px;
+}
+
+.round, .score{
+    margin: 0 auto;
 }
 
 .theChoice{
     display: flex;
     justify-content: space-evenly;
-    border:3px solid red;
+    border: 6px solid rgb(93, 164, 167);
     padding: 20px;
+    width: 600px;
+    height: 200px;
 }
 .choices{
     display: flex;
@@ -31,9 +39,6 @@ body{
     justify-content: center;
 }
 
-.round{
-    margin-left: 18px;
-}
 
 img{
     max-width: 200px;

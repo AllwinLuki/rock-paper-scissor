@@ -1,64 +1,37 @@
-const playerScore = document.querySelector(".playScore");
-const computerScore = document.querySelector(".compScore");
-const round = document.querySelector(".roundNo");
+let currentRound = document.querySelector('.round');
+let currentScore = document.querySelector('.score');
+let userScore = 0;
+let compScore = 0;
+let round = 0;
 
-const rockButton = document.querySelector(".rock");
-const paperButton = document.querySelector(".paper");
-const scissorButton = document.querySelector(".scissor");
+const rockButton = document.querySelector('.rock-button');
+const paperButton = document.querySelector('.paperButton');
+const scissorButton = document.querySelector('.scissor-button');
+const allButton = document.querySelectorAll(button);
 
-const gameResult = document.querySelector(".game-result");
-
-const playerChoice = "";
-
-function computerPlay(){
-    const choice = ["rock", "paper", "scissors"];
-    return choice[Math.floor(Math.random() * choice.length)]
-}
-
-function play(pChoice){
-    let x = computerPlay();
-    round += 1;
-    if(pChoice === "rock"){
-        if(x === "rock"){
-            return "tie"
-        } else if(x === "paper"){
-            return "lose"
-        } else{
-            return "win"
-        }
-    }else if(pChoice === "paper"){
-        if(x === "rock"){
-            return "win"
-        } else if(x === "paper"){
-            return "tie"
-        } else{
-            return "lose"
-        }
+function findWinner(userInput){
+    let compChoice = compInput;
+    console.log(compChoice);
+    if((userInput === "rock" && compChoice === "paper") || (userInput === "paper" && compChoice === "scissor") || (userInput === "scissor" && compChoice === "rock")){
+        return "loss";
+    }else if((userInput === "rock" && compChoice === "scissor") || (userInput === "paper" && compChoice === "rock") || (userInput === "scissor" && compChoice === "paper")){
+        return "win";
     }else{
-        if(x === "rock"){
-            return "lose"
-        } else if(x === "paper"){
-            return "win"
-        } else{
-            return "tie"
-        }
+        return "tie";
     }
 }
 
-function game(playerChoice){
-    playerChoice = this.dataset.button;
-    let roundResult = play(playerChoice);
-    if(round === 5){
-        if(playerScore > computerScore){
-            gameResult = "YOU WIN!";
-            playerScore += 1;
-        }else{
-            gameResult = "YOU LOSE...."
-            computerScore += 1;
-        }
+function playGame(button){
+    if(findWinner(button) === "loss"){
+        compScore++;
+     }else if(findWinner(button) === "win"){
+        userScore++;
     }
+    round++;
+    currentRound.textContent = round;
 }
 
-rockButton.addEventListener('click', game());
-paperButton.addEventListener('click', game());
-scissorButton.addEventListener('click', game());
+function compInput(){
+    const rpsArr = ['rock', 'paper', 'scissor'];
+    return rpsArr[Math.floor(Math.random() * 2)];
+}
